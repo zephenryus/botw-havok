@@ -1,5 +1,4 @@
-from havok.SegmentHeaderOffsetTables import SegmentHeaderOffsetTables
-from havok.Header import Header
+from havok.Havok import Havok
 
 
 def main():
@@ -14,9 +13,8 @@ def main():
 
     for filename in files:
         with open(filename, 'rb') as infile:
-            Header(infile)  # Seek past the header
-            segment_header_offset_table = SegmentHeaderOffsetTables(infile)
-            print(segment_header_offset_table)
+            havok = Havok(infile)
+            print(havok)
 
 
 if __name__ == "__main__":
