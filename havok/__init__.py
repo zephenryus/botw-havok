@@ -5,3 +5,4 @@ from .ClassName import ClassName
 from .DataSegment import DataSegment
 from .DataSegmentOffsetTableItem import DataSegmentOffsetTableItem
 from .DataSegmentOffsetTable import DataSegmentOffsetTable
+from .SegmentHeaderOffsetTableItem import SegmentHeaderOffsetTableItem

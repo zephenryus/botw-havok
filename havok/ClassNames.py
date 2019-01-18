@@ -9,10 +9,10 @@ class ClassNames:
     class_names = []
 
     def __init__(self, infile: BinaryIO, offset_table: SegmentHeaderOffsetTable) -> None:
+        classnames_buffer_size = offset_table.rel_offsets[0].abs_offset
+
         classname_id = struct.unpack('>Ix', infile.read(5))[0]
         classname = b''
-
-        classnames_buffer_size = offset_table.segment_abs_offset + offset_table.segment_rel_offsets[0]
 
         while infile.tell() < classnames_buffer_size:
             char = struct.unpack('>s', infile.read(1))[0]
