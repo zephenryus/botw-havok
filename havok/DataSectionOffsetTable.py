@@ -1,11 +1,11 @@
 import struct
-from typing import List, BinaryIO
+from typing import BinaryIO, List
 
-from havok.DataSegmentOffsetTableItem import DataSegmentOffsetTableItem
+from .DataSectionOffsetTableItem import DataSectionOffsetTableItem
 
 
-class DataSegmentOffsetTable:
-    items: List[DataSegmentOffsetTableItem]
+class DataSectionOffsetTable(object):
+    items: List[DataSectionOffsetTableItem]
     next_index = 0
 
     def __init__(self, infile: BinaryIO, table_start: int, table_length: int) -> None:
@@ -17,14 +17,14 @@ class DataSegmentOffsetTable:
             meta_offset, data_offset = struct.unpack('>2i', infile.read(8))
 
             if meta_offset != -1 and data_offset != -1:
-                self.append(DataSegmentOffsetTableItem(
+                self.append(DataSectionOffsetTableItem(
                     meta_offset,
                     data_offset,
                     data_offset - last_offset
                 ))
                 last_offset = data_offset
 
-    def append(self, data: DataSegmentOffsetTableItem):
+    def append(self, data: DataSectionOffsetTableItem):
         self.items.append(data)
 
     def __iter__(self):
@@ -40,6 +40,9 @@ class DataSegmentOffsetTable:
 
     def __len__(self):
         return len(self.items)
+
+    def __getitem__(self, item):
+        return self.items[item]
 
     def __repr__(self):
         return "{} <items: {}>".format(

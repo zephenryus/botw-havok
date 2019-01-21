@@ -44,7 +44,7 @@ class SectionHeader(object):
         :rtype:  str
         """
 
-        return "{} <table_name: '{}', abs_offset: {}, rel_offsets: [{}]>".format(
+        return "{} <name: '{}', start: {}, offsets: [{}]>".format(
             self.__class__.__name__,
             self.name,
             hex(self.start),
