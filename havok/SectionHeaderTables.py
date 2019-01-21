@@ -1,13 +1,16 @@
 from typing import BinaryIO
 
-from havok.SegmentHeaderOffsetTable import SegmentHeaderOffsetTable
+from .SectionHeader import SectionHeader
 
 
-class SegmentHeaderOffsetTables:
+class SectionHeaderTables(object):
+    """ SectionHeaderTables
+    Acts as a root container for the three available section offset tables in the Havok file
+    """
     def __init__(self, infile: BinaryIO) -> None:
-        self.classnames = SegmentHeaderOffsetTable(infile)
-        self.types = SegmentHeaderOffsetTable(infile)
-        self.data = SegmentHeaderOffsetTable(infile)
+        self.classnames = SectionHeader(infile)
+        self.types = SectionHeader(infile)
+        self.data = SectionHeader(infile)
 
     def __repr__(self):
         return "{} <classnames: {}, types: {}, data: {}>".format(
