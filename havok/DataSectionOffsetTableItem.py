@@ -1,4 +1,4 @@
-class DataSegmentOffsetTableItem:
+class DataSectionOffsetTableItem:
     meta: int
     data: int
     length: int
