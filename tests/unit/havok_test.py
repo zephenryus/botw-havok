@@ -62,4 +62,26 @@ class Test(unittest.TestCase):
         """
 
         havok_file = havok.Havok('../assets/Npc_King_Vagrant.hkcl')
-        # print(havok.data)
+        self.assertEqual(havok_file.data[3], 1097754989)
+
+    def test_a_havok_file_can_contain_multiple_files(self):
+        """ @test a Havok file can contain multiple files
+        Given the file G-6-2.hksc
+        When the file path is passed to the Havok class
+        And the file contains a StaticCompoundInfo class
+        Then the is_multi_file flag should be set
+        """
+
+        havok_file = havok.Havok('../assets/G-6-2.hksc')
+        self.assertTrue(havok_file.is_multi_file())
+
+    def test_it_can_decompile_from_a_different_offset(self):
+        """ @test it can decompile from a different offset
+        Given the file G-6-2.hksc
+        When the file is passed to the Havok class
+        And a different file start offset is specified
+        Then the second file should be decompiled
+        """
+
+        havok_file = havok.Havok('../assets/G-6-2.hksc', 0x3d80)
+        self.assertEqual(havok_file.section_header_tables.data.offsets[0].abs_offset, 0x202500)
