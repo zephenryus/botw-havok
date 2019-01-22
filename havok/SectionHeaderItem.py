@@ -1,4 +1,4 @@
-class SegmentHeaderOffsetTableItem:
+class SectionHeaderItem(object):
     rel_offset: int
     abs_offset: int
     size: int

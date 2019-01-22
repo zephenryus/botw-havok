@@ -2,7 +2,7 @@ import struct
 from typing import BinaryIO
 
 
-class Header:
+class Header(object):
     signature: bytes
     version: str
     size: int
