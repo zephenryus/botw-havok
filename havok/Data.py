@@ -19,6 +19,12 @@ class Data(object):
     def __getitem__(self, item):
         return self.data[item]
 
+    def __repr__(self):
+        return "{} <data: {}>".format(
+            self.__class__.__name__,
+            self.data
+        )
+
     def _get_array_sizes(self, infile: BinaryIO,
                          data_section_offset_table: DataSectionOffsetTable,
                          section_start: int

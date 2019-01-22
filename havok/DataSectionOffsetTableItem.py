@@ -11,7 +11,7 @@ class DataSectionOffsetTableItem(object):
         self.array_length = array_length
 
     def __repr__(self):
-        return "{} <meta: {}, data: {}, length: {}, array_length: {}>".format(
+        return "{} <meta: {}, data: {}, size: {}, array_length: {}>".format(
             self.__class__.__name__,
             hex(self.meta),
             hex(self.data),

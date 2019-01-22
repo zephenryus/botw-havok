@@ -14,7 +14,7 @@ class DataSectionOffsetTable(object):
         last_offset = 0
         self._next_index = 0
 
-        while infile.tell() + 8 < table_start + table_size:
+        while infile.tell() + 8 <= table_start + table_size:
             meta_offset, data_offset = struct.unpack('>2i', infile.read(8))
 
             if meta_offset != -1 and data_offset != -1:

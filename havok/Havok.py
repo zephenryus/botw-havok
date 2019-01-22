@@ -33,9 +33,11 @@ class Havok(object):
             )
 
     def __repr__(self) -> str:
-        return "{} <header: {}, section_header_tables: {}, classnames: {}>".format(
+        return "{} <header: {}, section_header_tables: {}, classnames: {}, data_section_offset_table: {}, data: {}>".format(
             self.__class__.__name__,
             self.header,
             self.section_header_tables,
-            self.classnames
+            self.classnames,
+            self.data_section_offset_table,
+            self.data
         )
