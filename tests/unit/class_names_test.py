@@ -14,6 +14,6 @@ class TestClassNames(unittest.TestCase):
             infile.seek(64)
             section_header_tables = havok.SectionHeaderTables(infile)
             classnames = havok.ClassNames(infile, section_header_tables.classnames)
-            self.assertEqual(len(classnames), 31)
+            self.assertEqual(len(classnames), 30)
             self.assertEqual(classnames[0].name, 'hkClass')
             self.assertEqual(classnames[5].name, 'hclClothContainer')

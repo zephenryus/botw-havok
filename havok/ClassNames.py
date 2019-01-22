@@ -23,10 +23,11 @@ class ClassNames(object):
                 classname += char
 
             else:
-                self.class_names.append(ClassName(
-                    classname_id,
-                    classname.decode('utf-8')
-                ))
+                if classname != b'':
+                    self.class_names.append(ClassName(
+                        classname_id,
+                        classname.decode('utf-8')
+                    ))
 
                 if char == b'\xff' or infile.tell() + 5 > classnames_buffer_end:
                     break

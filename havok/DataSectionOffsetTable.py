@@ -6,12 +6,13 @@ from .DataSectionOffsetTableItem import DataSectionOffsetTableItem
 
 class DataSectionOffsetTable(object):
     items: List[DataSectionOffsetTableItem]
-    next_index = 0
+    _next_index: int
 
     def __init__(self, infile: BinaryIO, table_start: int, table_length: int) -> None:
         self.items = []
         infile.seek(table_start)
         last_offset = 0
+        self._next_index = 0
 
         while infile.tell() + 8 < table_start + table_length:
             meta_offset, data_offset = struct.unpack('>2i', infile.read(8))
@@ -28,14 +29,14 @@ class DataSectionOffsetTable(object):
         self.items.append(data)
 
     def __iter__(self):
-        return self.items
+        return iter(self.items)
 
     def __next__(self):
-        if self.next_index > len(self.items):
+        if self._next_index > len(self.items):
             raise StopIteration
         else:
-            item = self.items[self.next_index]
-            self.next_index += 1
+            item = self.items[self._next_index]
+            self._next_index += 1
             return item
 
     def __len__(self):

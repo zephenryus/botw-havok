@@ -1,16 +1,20 @@
 class DataSectionOffsetTableItem:
     meta: int
     data: int
-    length: int
+    size: int
+    array_length: int
 
-    def __init__(self, meta_offset: int, data_offset: int, length=0) -> None:
+    def __init__(self, meta_offset: int, data_offset: int, length=0, array_length=0) -> None:
         self.meta = meta_offset
         self.data = data_offset
-        self.length = length
+        self.size = length
+        self.array_length = array_length
 
     def __repr__(self):
-        return "{} <meta: {}, data: {}>".format(
+        return "{} <meta: {}, data: {}, length: {}, array_length: {}>".format(
             self.__class__.__name__,
             hex(self.meta),
-            hex(self.data)
+            hex(self.data),
+            self.size,
+            self.array_length
         )

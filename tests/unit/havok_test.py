@@ -42,3 +42,24 @@ class Test(unittest.TestCase):
 
         havok = Havok('../assets/FldObj_FallingRock_A_01.hkrb')
         self.assertEqual(havok.classnames[5].name, 'hkpPhysicsData')
+
+    def test_it_decompiles_the_data_section_offset_table(self):
+        """ @test it decompiles the data section offset table
+        Given the file G-6-2.hksc
+        When the file path is passed to the Havok class
+        Then the data section offset table should be decompiled into the Havok object
+        """
+
+        havok = Havok('../assets/G-6-2.hksc')
+        self.assertEqual(havok.data_section_offset_table[0].meta, 0x4)
+        self.assertEqual(havok.data_section_offset_table[0].data, 0x20)
+
+    def test_it_decompiles_the_data_section(self):
+        """ @test it decompiles the data section
+        Given the file Npc_King_Vagrant.hkcl
+        When the file is path is passed to the Havok class
+        Then the data should be decompiled into the Havok object
+        """
+
+        havok = Havok('../assets/Npc_King_Vagrant.hkcl')
+        # print(havok.data)
