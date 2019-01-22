@@ -1,0 +1,96 @@
+{
+	"classnames": [
+		{
+			"id": 869540739,
+			"name": hkClass
+		},
+		{
+			"id": 2968495897,
+			"name": hkClassMember
+		},
+		{
+			"id": 2318797263,
+			"name": hkClassEnum
+		},
+		{
+			"id": 3463416428,
+			"name": hkClassEnumItem
+		},
+		{
+			"id": 661831966,
+			"name": hkRootLevelContainer
+		},
+		{
+			"id": 1202244227,
+			"name": hkpPhysicsData
+		},
+		{
+			"id": 3016519268,
+			"name": hkpPhysicsSystem
+		},
+		{
+			"id": 3442371045,
+			"name": hkpRigidBody
+		},
+		{
+			"id": 3256650586,
+			"name": hkpConvexVerticesShape
+		},
+	],
+	"dataOffsetTable": [
+		{
+			"meta": 0x0,
+			"data": 0x10
+			"size": 16
+			"array_length": 0
+		},
+		{
+			"meta": 0x10,
+			"data": 0x1c
+			"size": 12
+			"array_length": 0
+		},
+		{
+			"meta": 0x14,
+			"data": 0x30
+			"size": 20
+			"array_length": 0
+		},
+		{
+			"meta": 0x4c,
+			"data": 0x60
+			"size": 48
+			"array_length": 0
+		},
+		{
+			"meta": 0x78,
+			"data": 0xc0
+			"size": 96
+			"array_length": 0
+		},
+		{
+			"meta": 0xa8,
+			"data": 0xd0
+			"size": 16
+			"array_length": 0
+		},
+		{
+			"meta": 0x168,
+			"data": 0x310
+			"size": 576
+			"array_length": 0
+		},
+		{
+			"meta": 0x370,
+			"data": 0x3a0
+			"size": 144
+			"array_length": 0
+		},
+		{
+			"meta": 0x384,
+			"data": 0x4f0
+			"size": 336
+			"array_length": 0
+		},
+	]
+}

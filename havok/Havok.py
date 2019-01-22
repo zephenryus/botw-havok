@@ -13,6 +13,7 @@ class Havok(object):
     section_header_tables: SectionHeaderTables
     classnames: List[ClassName]
     data_section_offset_table: DataSectionOffsetTable
+    data: Data
 
     def __init__(self, path: str) -> None:
         with open(path, 'rb') as infile:
@@ -31,7 +32,7 @@ class Havok(object):
                 self.classnames
             )
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return "{} <header: {}, section_header_tables: {}, classnames: {}>".format(
             self.__class__.__name__,
             self.header,
