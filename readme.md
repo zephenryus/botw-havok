@@ -6,30 +6,74 @@ The pre-release of this package does not fully decompile the binary data, but or
 
 # Table of Contents
 
-* Classes
-    * The Havok class
-        * Havok.\_\_init\_\_
-    * The Header class
-        * Header.\_\_init\_\_
-        * Header.is_long
-    * The SectionHeader class
-        * SectionHeader.\_\_init\_\_
-    * The SectionHeaderTables class
-        * SectionHeaderTables.\_\_init\_\_
-    * The SectionHeaderItem class
-        * SectionHeaderItem.\_\_init\_\_
-    * The ClassNames class
-        * ClassNames.\_\_init\_\_
-    * The DataSectionOffsetTable class
-        * DataSectionOffsetTable.\_\_init\_\_
-        * DataSectionOffsetTable.append
-    * The DataSectionOffsetTableItem class
-        * DataSectionOffsetTableItem.\_\_init\_\_
-    * The Data class
-        * Data.\_\_init\_\_
-        
+* [Classes](https://github.com/zephenryus/botw-havok#classes)
+    * [The Havok class](https://github.com/zephenryus/botw-havok#the-havok-class)
+        * [Havok.\_\_init\_\_](https://github.com/zephenryus/botw-havok#havok__init__)
+    * [The Header class](https://github.com/zephenryus/botw-havok#the-header-class)
+        * [Header.\_\_init\_\_](https://github.com/zephenryus/botw-havok#header__init__)
+        * [Header.is_long](https://github.com/zephenryus/botw-havok#headeris_long)
+    * [The SectionHeader class](https://github.com/zephenryus/botw-havok#the-sectionheader-class)
+        * [SectionHeader.\_\_init\_\_](https://github.com/zephenryus/botw-havok#sectionheader__init__)
+    * [The SectionHeaderTables class](https://github.com/zephenryus/botw-havok#the-sectionheadertables-class)
+        * [SectionHeaderTables.\_\_init\_\_](https://github.com/zephenryus/botw-havok#sectionheadertables__init__)
+    * [The SectionHeaderItem class](https://github.com/zephenryus/botw-havok#the-sectionheaderitem-class)
+        * [SectionHeaderItem.\_\_init\_\_](https://github.com/zephenryus/botw-havok#sectionheaderitem__init__)
+    * [The ClassNames class](https://github.com/zephenryus/botw-havok#the-classnames-class)
+        * [ClassNames.\_\_init\_\_](https://github.com/zephenryus/botw-havok#classnames__init__)
+    * [The ClassName class](https://github.com/zephenryus/botw-havok#the-classname-class)
+        * [ClassName.\_\_init\_\_](https://github.com/zephenryus/botw-havok#classname__init__)
+    * [The DataSectionOffsetTable class](https://github.com/zephenryus/botw-havok#the-datasectionoffsettable-class)
+        * [DataSectionOffsetTable.\_\_init\_\_](https://github.com/zephenryus/botw-havok#datasectionoffsettable__init__)
+        * [DataSectionOffsetTable.append](https://github.com/zephenryus/botw-havok#datasectionoffsettableappend)
+    * [The DataSectionOffsetTableItem class](https://github.com/zephenryus/botw-havok#the-datasectionoffsettableitem-class)
+        * [DataSectionOffsetTableItem.\_\_init\_\_](https://github.com/zephenryus/botw-havok#datasectionoffsettableitem__init__)
+    * [The Data class](https://github.com/zephenryus/botw-havok#the-data-class)
+        * [Data.\_\_init\_\_](https://github.com/zephenryus/botw-havok#data__init__)
 
 # Classes
+
+## The Havok class
+
+### Introduction
+
+A container class for all headers and data contained within a *Havok* binary file.
+
+### Class synopsis
+
+```python
+class Havok:
+    # Properties
+    header: Header
+    section_header_tables: SectionHeaderTables
+    classnames: List[ClassName]
+    data_section_offset_table: DataSectionOffsetTable
+    data: Data
+
+    # Methods
+    def __init__(path: str) -> None: pass
+```
+
+#### Properties
+
+##### `header`
+
+Contains header information for the entire file
+
+##### `section_header_tables`
+
+Contains header information the three sections of the file: classnames, types and data.
+
+##### `classnames`
+
+A list of class names to be parsed from the file.
+
+##### `data_section_offset_table`
+
+A table of offsets of data segments contained in the data section of the file.
+
+##### `data`
+
+The parsed binary data.
 
 #### Changelog
 
