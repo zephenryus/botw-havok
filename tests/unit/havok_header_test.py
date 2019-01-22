@@ -13,6 +13,7 @@ class TestHavokHeader(unittest.TestCase):
 
         with open('../assets/G-6-2.hksc', 'rb') as infile:
             header = havok.Header(infile)
+            print(header.version)
             self.assertEqual(header.signature, b'W\xe0\xe0W\x10\xc0\xc0\x10')
             self.assertEqual(header.size, 64)
             self.assertEqual(header.version, 'hk_2014.2.0-r1')

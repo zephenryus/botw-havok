@@ -8,13 +8,13 @@ class DataSectionOffsetTable(object):
     items: List[DataSectionOffsetTableItem]
     _next_index: int
 
-    def __init__(self, infile: BinaryIO, table_start: int, table_length: int) -> None:
+    def __init__(self, infile: BinaryIO, table_start: int, table_size: int) -> None:
         self.items = []
         infile.seek(table_start)
         last_offset = 0
         self._next_index = 0
 
-        while infile.tell() + 8 < table_start + table_length:
+        while infile.tell() + 8 < table_start + table_size:
             meta_offset, data_offset = struct.unpack('>2i', infile.read(8))
 
             if meta_offset != -1 and data_offset != -1:
@@ -25,8 +25,9 @@ class DataSectionOffsetTable(object):
                 ))
                 last_offset = data_offset
 
-    def append(self, data: DataSectionOffsetTableItem):
+    def append(self, data: DataSectionOffsetTableItem) -> int:
         self.items.append(data)
+        return len(self.items)
 
     def __iter__(self):
         return iter(self.items)

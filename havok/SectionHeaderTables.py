@@ -4,6 +4,10 @@ from .SectionHeader import SectionHeader
 
 
 class SectionHeaderTables(object):
+    classnames: SectionHeader
+    types: SectionHeader
+    data: SectionHeader
+
     """ SectionHeaderTables
     Acts as a root container for the three available section offset tables in the Havok file
     """
