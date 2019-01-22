@@ -11,10 +11,10 @@ class SectionHeaderTables(object):
     """ SectionHeaderTables
     Acts as a root container for the three available section offset tables in the Havok file
     """
-    def __init__(self, infile: BinaryIO) -> None:
-        self.classnames = SectionHeader(infile)
-        self.types = SectionHeader(infile)
-        self.data = SectionHeader(infile)
+    def __init__(self, infile: BinaryIO, file_start=0) -> None:
+        self.classnames = SectionHeader(infile, file_start)
+        self.types = SectionHeader(infile, file_start)
+        self.data = SectionHeader(infile, file_start)
 
     def __repr__(self):
         return "{} <classnames: {}, types: {}, data: {}>".format(

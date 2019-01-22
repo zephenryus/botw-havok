@@ -15,10 +15,15 @@ class Havok(object):
     data_section_offset_table: DataSectionOffsetTable
     data: Data
 
-    def __init__(self, path: str) -> None:
+    MULTI_FILE_CLASSNAMES = [
+        "StaticCompoundInfo"
+    ]
+
+    def __init__(self, path: str, file_start=0) -> None:
         with open(path, 'rb') as infile:
+            infile.seek(file_start)
             self.header = Header(infile)
-            self.section_header_tables = SectionHeaderTables(infile)
+            self.section_header_tables = SectionHeaderTables(infile, file_start)
             self.classnames = ClassNames(infile, self.section_header_tables.classnames)
             self.data_section_offset_table = DataSectionOffsetTable(
                 infile,
@@ -41,3 +46,10 @@ class Havok(object):
             self.data_section_offset_table,
             self.data
         )
+
+    def is_multi_file(self) -> bool:
+        for classname in self.classnames:
+            if classname.name in self.MULTI_FILE_CLASSNAMES:
+                return True
+
+        return False
