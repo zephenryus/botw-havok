@@ -5,16 +5,19 @@ from .SectionHeader import SectionHeader
 from .DataSectionOffsetTable import DataSectionOffsetTable
 from .ClassNames import ClassNames
 
+
 class Data(object):
     def __init__(self,
-             infile: BinaryIO,
-             data_section_header: SectionHeader,
-             data_section_offset_table: DataSectionOffsetTable,
-             classnames
-             ) -> None:
+                 infile: BinaryIO,
+                 data_section_header: SectionHeader,
+                 data_section_offset_table: DataSectionOffsetTable,
+                 classnames,
+                 file_start=0
+                 ) -> None:
         self.data = []
-        self.data_section_offset_table = self._get_array_sizes(infile, data_section_offset_table, data_section_header.start)
-        self._get_data(infile, data_section_header.start)
+        self.data_section_offset_table = self._get_array_sizes(infile, data_section_offset_table,
+                                                               data_section_header.start)
+        self._get_data(infile, data_section_header.start, file_start)
 
     def __getitem__(self, item):
         return self.data[item]
@@ -39,7 +42,7 @@ class Data(object):
 
         return data_section_offset_table
 
-    def _get_data(self, infile: BinaryIO, section_start: int):
+    def _get_data(self, infile: BinaryIO, section_start: int, file_start=0):
         for offset in self.data_section_offset_table:
-            infile.seek(offset.data + section_start)
+            infile.seek(offset.data + section_start + file_start)
             self.data.append(struct.unpack('>I', infile.read(4))[0])
