@@ -27,13 +27,14 @@ class SectionHeader(object):
             rel_offs[4], \
             rel_offs[5] = struct.unpack('>7I16x', infile.read(44))
 
+        self.start += file_start
         self.offsets = [
-            SectionHeaderItem(rel_offs[0], self.start + rel_offs[0] + file_start, rel_offs[1] - rel_offs[0]),
-            SectionHeaderItem(rel_offs[1], self.start + rel_offs[1] + file_start, rel_offs[2] - rel_offs[1]),
-            SectionHeaderItem(rel_offs[2], self.start + rel_offs[2] + file_start, rel_offs[3] - rel_offs[2]),
-            SectionHeaderItem(rel_offs[3], self.start + rel_offs[3] + file_start, rel_offs[4] - rel_offs[3]),
-            SectionHeaderItem(rel_offs[4], self.start + rel_offs[4] + file_start, rel_offs[5] - rel_offs[4]),
-            SectionHeaderItem(rel_offs[5], self.start + rel_offs[5] + file_start, 0)
+            SectionHeaderItem(rel_offs[0], self.start + rel_offs[0], rel_offs[1] - rel_offs[0]),
+            SectionHeaderItem(rel_offs[1], self.start + rel_offs[1], rel_offs[2] - rel_offs[1]),
+            SectionHeaderItem(rel_offs[2], self.start + rel_offs[2], rel_offs[3] - rel_offs[2]),
+            SectionHeaderItem(rel_offs[3], self.start + rel_offs[3], rel_offs[4] - rel_offs[3]),
+            SectionHeaderItem(rel_offs[4], self.start + rel_offs[4], rel_offs[5] - rel_offs[4]),
+            SectionHeaderItem(rel_offs[5], self.start + rel_offs[5], 0)
         ]
 
     def __repr__(self) -> str:

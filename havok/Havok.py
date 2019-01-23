@@ -34,7 +34,8 @@ class Havok(object):
                 infile,
                 self.section_header_tables.data,
                 self.data_section_offset_table,
-                self.classnames
+                self.classnames,
+                file_start
             )
 
     def __repr__(self) -> str:
