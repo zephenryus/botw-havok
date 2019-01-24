@@ -1,0 +1,2 @@
+class hkColor(object):
+    pass

@@ -1,0 +1,2 @@
+class hkcdDynamicTreeAnisotropicMetric(object):
+    pass

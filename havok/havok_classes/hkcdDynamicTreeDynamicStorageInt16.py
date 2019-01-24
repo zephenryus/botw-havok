@@ -1,0 +1,5 @@
+from .hkcdDynamicTreeDefaultDynamicStoragehkcdDynamicTreeCodecInt16 import hkcdDynamicTreeDefaultDynamicStoragehkcdDynamicTreeCodecInt16
+
+
+class hkcdDynamicTreeDynamicStorageInt16(hkcdDynamicTreeDefaultDynamicStoragehkcdDynamicTreeCodecInt16):
+    pass

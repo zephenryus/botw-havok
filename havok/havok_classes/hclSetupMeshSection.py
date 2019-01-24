@@ -1,0 +1,2 @@
+class hclSetupMeshSection(object):
+    pass

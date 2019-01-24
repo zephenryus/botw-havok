@@ -1,0 +1,2 @@
+class hkpWheelFrictionConstraintDataRuntime(object):
+    pass

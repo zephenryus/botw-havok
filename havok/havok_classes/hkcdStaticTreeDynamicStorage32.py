@@ -1,0 +1,5 @@
+from .hkcdStaticTreeDynamicStoragehkcdStaticTreeCodecRaw import hkcdStaticTreeDynamicStoragehkcdStaticTreeCodecRaw
+
+
+class hkcdStaticTreeDynamicStorage32(hkcdStaticTreeDynamicStoragehkcdStaticTreeCodecRaw):
+    pass

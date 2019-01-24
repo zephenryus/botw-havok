@@ -1,0 +1,5 @@
+from .hkSethkIntRealPairhkContainerHeapAllocatorhkMapOperationshkIntRealPair import hkSethkIntRealPairhkContainerHeapAllocatorhkMapOperationshkIntRealPair
+
+
+class hkSetIntFloatPair(hkSethkIntRealPairhkContainerHeapAllocatorhkMapOperationshkIntRealPair):
+    pass

@@ -1,0 +1,2 @@
+class hkcdDynamicTreeBalanceMetric(object):
+    pass

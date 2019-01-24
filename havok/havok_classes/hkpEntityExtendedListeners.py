@@ -1,0 +1,6 @@
+from .hkpEntitySmallArraySerializeOverrideType import hkpEntitySmallArraySerializeOverrideType
+
+
+class hkpEntityExtendedListeners(object):
+    activationListeners: hkpEntitySmallArraySerializeOverrideType
+    entityListeners: hkpEntitySmallArraySerializeOverrideType

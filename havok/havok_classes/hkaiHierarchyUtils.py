@@ -1,0 +1,2 @@
+class hkaiHierarchyUtils(object):
+    pass

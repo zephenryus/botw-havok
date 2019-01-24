@@ -1,0 +1,5 @@
+from .hkSetunsignedlonglonghkContainerHeapAllocatorhkMapOperationsunsignedlonglong import hkSetunsignedlonglonghkContainerHeapAllocatorhkMapOperationsunsignedlonglong
+
+
+class hkSetUint64(hkSetunsignedlonglonghkContainerHeapAllocatorhkMapOperationsunsignedlonglong):
+    pass

@@ -1,0 +1,5 @@
+from .hkcdDynamicTreeTreehkcdDynamicTreeDynamicStorage32 import hkcdDynamicTreeTreehkcdDynamicTreeDynamicStorage32
+
+
+class hkcdDynamicTreeDefaultTree48Storage(hkcdDynamicTreeTreehkcdDynamicTreeDynamicStorage32):
+    pass

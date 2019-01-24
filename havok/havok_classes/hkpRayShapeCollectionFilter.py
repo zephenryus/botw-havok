@@ -1,0 +1,2 @@
+class hkpRayShapeCollectionFilter(object):
+    pass

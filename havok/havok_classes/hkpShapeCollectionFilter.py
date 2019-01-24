@@ -1,0 +1,2 @@
+class hkpShapeCollectionFilter(object):
+    pass
